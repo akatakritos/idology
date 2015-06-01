@@ -16,6 +16,7 @@ require File.dirname(__FILE__) + "/subject"
 require File.dirname(__FILE__) + "/result"
 require File.dirname(__FILE__) + "/summary_result"
 require File.dirname(__FILE__) + "/velocity_result"
+require File.dirname(__FILE__) + "/id_phone_result"
 require File.dirname(__FILE__) + "/response"
 
 module IDology

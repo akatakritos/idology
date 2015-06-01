@@ -25,7 +25,7 @@ module IDology
         if SearchAttributes.include?(key) || CommonAttributes.include?(key)
           self.send "#{key}=", value
         else
-          raise IDology::Error.new("Unknow subject attribute '#{key}'")
+          raise IDology::Error.new("Unknown subject attribute '#{key}'")
         end
       end
     end

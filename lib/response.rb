@@ -21,6 +21,7 @@ module IDology
     has_many :restrictions, IDology::Restriction
     has_many :questions, IDology::Question
     has_many :velocity_results, IDology::VelocityResult
+    has_many :id_phone_results, IDology::IDPhoneResult
     
     # A helper method as this can be an element or in the iq_error
     def ineligible_for_questions?
