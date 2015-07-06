@@ -12,5 +12,9 @@ module IDology
     def verified?
       incorrect == 0
     end
+
+    def to_s
+      "#{key}: #{message}"
+    end
   end
 end

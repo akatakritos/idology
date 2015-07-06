@@ -95,8 +95,8 @@ module IDology
       raise IDology::Error.new(self.response.errors) if self.response.errors?
 
       self.response
-    #rescue Timeout::Error, Net::HTTPError => e
-    #  raise IDology::Error, e.message
+    rescue Timeout::Error, Net::HTTPError => e
+     raise IDology::Error, e.message
     end
 
     def answer_params
