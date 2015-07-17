@@ -55,14 +55,7 @@ module IDology
     alias_method :error?, :errors?
     
     def errors
-      # [failed, error].compact.map{|e| e.to_s}.join(',')
-      errors = []
-      # timeout errors
-      errors << iq_result.to_s if iq_result && iq_result.key.include?('result.timeout') 
-      errors << iq_challenge_result.to_s if iq_challenge_result && iq_challenge_result.include?('result.timeout')
-      errors << iq_error.to_s if iq_error
-
-      errors.empty? ? nil : errors.join(",")
+      [failed, error].compact.map{|e| e.to_s}.join(',')
     end
 
     def global_watch_list_hit?
