@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     idology (1.10.4)
-      happymapper (= 0.4.1)
+      happymapper (~> 0.4.0)
       httparty (= 0.13.3)
 
 GEM
@@ -10,7 +10,7 @@ GEM
   specs:
     diff-lcs (1.2.5)
     fakeweb (1.2.8)
-    happymapper (0.4.1)
+    happymapper (0.4.0)
       libxml-ruby (~> 2.0)
     httparty (0.13.3)
       json (~> 1.8)
