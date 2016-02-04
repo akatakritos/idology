@@ -2,7 +2,6 @@ module IDology
   class Subject
     include HTTParty
     base_uri 'https://web.idologylive.com/api'
-    # pem File.read(File.dirname(__FILE__) + '/certs/cacert.pem')
     parser lambda{|r, format| IDology::Response.parse(r.to_s)}
 
     SearchAttributes = [:firstName, :lastName, :address, :city, :state, :zip, :ssnLast4, :ssn, :dobMonth, :dobYear]
@@ -59,8 +58,8 @@ module IDology
       identified? ? response : false
     end
 
-    def submit_answers
-      post(:answers, [], answer_params)
+    def submit_answers(answers=nil)
+      post(:answers, [], answers ? answers : answer_params)
     end
 
     def get_challenge_questions
