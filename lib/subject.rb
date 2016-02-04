@@ -59,8 +59,6 @@ module IDology
     end
 
     def submit_answers(answers=nil)
-      puts answers
-      puts answer_params
       post(:answers, [], answers ? answers : answer_params)
     end
 
