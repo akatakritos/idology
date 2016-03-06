@@ -89,16 +89,14 @@ module IDology
         raise IDology::Error, "idNumber can't be blank."
       end
 
-      if Rails.env.production?
-        proxy = URI.parse(ENV['PROXIMO_URL'])
+      opts = { body: data }
 
-        opts = { http_proxyaddr: proxy.host,
-                 http_proxyport: proxy.port,
-                 http_proxyuser: proxy.user,
-                 http_proxypass: proxy.password,
-                 body: data }
-      else
-        opts = { body: data }
+      unless IDology[:proxy_url].blank?
+        proxy = URI.parse(IDology[:proxy_url])
+        opts.merge!({ http_proxyaddr: proxy.host,
+                      http_proxyport: proxy.port,
+                      http_proxyuser: proxy.user,
+                      http_proxypass: proxy.password })
       end
 
       self.response = Subject.post(Paths[url], opts)
